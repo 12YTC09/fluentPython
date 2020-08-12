@@ -4,5 +4,5 @@
 ch02/.ipynb_checkpoints/
 ch05/.ipynb_checkpoints/
 */.ipynb_checkpoints/
-../
-./
+../*
+./*
