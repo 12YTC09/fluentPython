@@ -52,7 +52,7 @@ class BulkItemPromo(Promotion): #第二個Concrete Strategy
         discount = 0
         for item in order.cart:
             if item.quantity >= 20:
-                discount += item.total *.1
+                discount += item.total() * .1 
         return discount
 
 class LargeOrderPromo(Promotion):  #第三個Concrete Strategy
