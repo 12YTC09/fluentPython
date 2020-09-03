@@ -9,13 +9,13 @@ def promotion(promo_func):
     return promo_func
 
 @promotion 
-def fidelity_promo(order):
+def fidelity(order):
     """5% discount for customers with 1000 or more fidelity points"""
     return order.total() * .5 if order.customer.fidelity >= 1000 else 0
 
 
 @promotion 
-def bulk_item_promo(order):
+def bulk_item(order):
     """10% discount for each LineItem with 20 or more units"""
     discount = 0
     for item  in order.cart:
@@ -24,7 +24,7 @@ def bulk_item_promo(order):
     return discount
 
 @promotion 
-def large_order_promo(order):
+def large_order(order):
     """7% discount for orders with 10 or more distinct items"""
     distinct_items = {item.product for item in order.cart}
     if len(distinct_items) >= 10:
