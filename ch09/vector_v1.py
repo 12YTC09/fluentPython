@@ -30,10 +30,17 @@ class Vector:
         return tuple(self) == tuple(other)
     
     def __abs__(self):
+        return math.sqrt(sum(x*x for x in self))
+
+    def __bool__(self):
         return bool(abs(self))
 
     @classmethod
     def frombytes(cls,octets):
+        typecode = chr(octets[0])
+        memv  = memoryview(octets[1:]).cast(typecode)
+        return cls(memv)
+
 
 
 
